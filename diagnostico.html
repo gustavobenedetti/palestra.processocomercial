@@ -539,6 +539,33 @@ function computeResult() {
   }
 
   showScreen('result');
+
+  // ── WEBHOOK DATACRAZY ──
+  try {
+    const pctMin = Math.round(stage.pctMin * 100);
+    const pctMax = Math.round(stage.pctMax * 100);
+    const low    = fat > 0 ? formatBRL(Math.round(fat * stage.pctMin)) : null;
+    const high   = fat > 0 ? formatBRL(Math.round(fat * stage.pctMax)) : null;
+
+    fetch('https://api.datacrazy.io/v1/crm/api/crm/flows/webhooks/da4cb7af-3b90-4c2a-af4d-81c1e6bf6d95/0ea8d806-8acf-4a0a-9844-6c6cad3a5d40', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nome:             formData.nome,
+        whatsapp:         formData.contato,
+        faturamento:      formData.faturamento,
+        estagio:          stage.name,
+        estagio_idx:      stage.idx,
+        pontuacao:        total,
+        pontuacao_max:    36,
+        inercia_pct_min:  pctMin,
+        inercia_pct_max:  pctMax,
+        inercia_valor_min: low,
+        inercia_valor_max: high,
+        origem:           'Diagnóstico · Palestra Gustavo Benedetti'
+      })
+    });
+  } catch(e) { /* silencioso — não impacta o usuário */ }
 }
 </script>
 </body>
