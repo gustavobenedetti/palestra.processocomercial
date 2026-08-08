@@ -48,27 +48,37 @@ main { flex: 1; display: flex; align-items: center; justify-content: center; pad
 .intro-stages { display: flex; justify-content: center; gap: 6px; margin-bottom: 30px; }
 .intro-stage-dot { flex: 1; max-width: 70px; height: 4px; border-radius: 2px; background: var(--border); position: relative; }
 .intro-stage-dot::after { content: attr(data-label); position: absolute; top: 10px; left: 50%; transform: translateX(-50%); font-size: 8px; color: var(--muted); white-space: nowrap; letter-spacing: .04em; }
+
+/* FIELDS */
 .field-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: block; }
 .field-input {
   width: 100%; background: var(--card); border: 1px solid var(--border);
   border-radius: 12px; padding: 16px 18px; font-size: 16px; color: var(--white);
-  font-family: 'Montserrat', sans-serif; margin-bottom: 22px;
+  font-family: 'Montserrat', sans-serif; margin-bottom: 16px;
   outline: none; transition: border-color .2s;
 }
 .field-input:focus { border-color: var(--accent); }
 .field-input::placeholder { color: var(--muted); }
+
+/* FORM MID */
+.form-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); text-align: center; margin-bottom: 12px; }
+.form-title { font-size: clamp(22px, 6vw, 28px); font-weight: 900; color: var(--white); text-align: center; line-height: 1.2; letter-spacing: -.025em; margin-bottom: 8px; }
+.form-desc { font-size: 13px; color: var(--muted); text-align: center; line-height: 1.65; margin-bottom: 28px; }
+.field-group { margin-bottom: 0; }
+
+/* BUTTONS */
 .btn-primary {
   width: 100%; background: var(--white); color: #050505; border: none;
   border-radius: 12px; padding: 17px; font-size: 14px; font-weight: 800;
   letter-spacing: .03em; cursor: pointer; transition: all .2s;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif; margin-top: 8px;
 }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,255,255,.12); }
 .btn-primary:active { transform: translateY(0); }
 .btn-primary:disabled { opacity: .35; cursor: not-allowed; transform: none; box-shadow: none; }
 
 /* QUESTION */
-.q-counter { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); text-align: center; margin-bottom: 10px; letter-spacing: .08em; }
+.q-counter { font-family: 'Montserrat', sans-serif; font-size: 11px; color: var(--muted); text-align: center; margin-bottom: 10px; letter-spacing: .08em; }
 .q-axis { font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); text-align: center; margin-bottom: 16px; }
 .q-text { font-size: clamp(19px, 5vw, 24px); font-weight: 800; color: var(--white); line-height: 1.3; text-align: center; margin-bottom: 26px; letter-spacing: -.01em; }
 .q-options { display: flex; flex-direction: column; gap: 10px; }
@@ -101,11 +111,11 @@ main { flex: 1; display: flex; align-items: center; justify-content: center; pad
 .res-stage-seg { flex: 1; max-width: 60px; height: 5px; border-radius: 3px; background: var(--border); }
 .res-stage-seg.filled { background: var(--white); }
 .res-title { font-size: clamp(26px, 8vw, 36px); font-weight: 900; letter-spacing: -.03em; color: var(--white); text-align: center; line-height: 1.05; margin-bottom: 6px; }
-.res-score { font-family: 'Space Mono', monospace; font-size: 13px; color: var(--muted); text-align: center; margin-bottom: 26px; }
+.res-score { font-family: 'Montserrat', sans-serif; font-size: 13px; color: var(--muted); text-align: center; margin-bottom: 26px; }
 .res-score strong { color: var(--text); }
 .res-card {
   background: var(--card); border: 1px solid var(--border); border-radius: 16px;
-  padding: 22px 20px; margin-bottom: 22px; position: relative; overflow: hidden;
+  padding: 22px 20px; margin-bottom: 16px; position: relative; overflow: hidden;
 }
 .res-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--res-clr, var(--accent)); }
 .res-tag {
@@ -115,15 +125,24 @@ main { flex: 1; display: flex; align-items: center; justify-content: center; pad
 }
 .res-text { font-size: 13.5px; color: var(--text); line-height: 1.7; }
 .res-text strong { color: var(--white); }
-.btn-whatsapp {
-  width: 100%; background: var(--white); color: #050505; border: none;
-  border-radius: 14px; padding: 18px; font-size: 14px; font-weight: 800;
-  letter-spacing: .02em; cursor: pointer; text-decoration: none;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  font-family: 'Montserrat', sans-serif; transition: all .2s; margin-bottom: 14px;
+
+/* CUSTO DE INÉRCIA */
+.res-inercia {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 22px 20px; margin-bottom: 22px; position: relative; overflow: hidden;
+  text-align: center;
 }
-.btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,255,255,.12); }
-.res-note { font-size: 11px; color: var(--muted); text-align: center; line-height: 1.6; }
+.res-inercia::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--res-clr, var(--accent)); }
+.res-inercia-label { font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.res-inercia-range {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 6vw, 32px); font-weight: 900;
+  color: var(--res-clr, var(--accent)); line-height: 1; margin-bottom: 8px;
+}
+.res-inercia-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.res-inercia-desc strong { color: var(--text); }
+
+.res-note { font-size: 11px; color: var(--muted); text-align: center; line-height: 1.6; margin-bottom: 16px; }
 
 footer { position: relative; z-index: 2; text-align: center; padding: 0 18px 24px; font-size: 9px; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
 </style>
@@ -143,19 +162,45 @@ footer { position: relative; z-index: 2; text-align: center; padding: 0 18px 24p
   <div class="screen active" id="screen-intro">
     <div class="intro-eyebrow">Mapa de Maturidade Comercial</div>
     <h1 class="intro-title">Em que estágio<br>está o seu comercial?</h1>
-    <p class="intro-desc">8 perguntas rápidas. Ao final, você descobre exatamente em qual dos 4 estágios sua empresa está hoje — e o que falta para o próximo.</p>
-    <label class="field-label" for="nameInput">Seu nome</label>
-    <input class="field-input" id="nameInput" type="text" placeholder="Como podemos te chamar?" autocomplete="off">
-    <button class="btn-primary" id="startBtn" disabled>Começar diagnóstico</button>
+    <p class="intro-desc">9 perguntas rápidas. Ao final, você descobre exatamente em qual dos 4 estágios sua empresa está — e quanto isso está custando por mês.</p>
+    <div class="intro-stages">
+      <div class="intro-stage-dot" data-label="Canais"></div>
+      <div class="intro-stage-dot" data-label="Processo"></div>
+      <div class="intro-stage-dot" data-label="Oferta"></div>
+      <div class="intro-stage-dot" data-label="Gestão"></div>
+    </div>
+    <button class="btn-primary" id="startBtn">Começar diagnóstico</button>
   </div>
 
-  <!-- QUESTION (template, conteúdo injetado via JS) -->
+  <!-- QUESTION -->
   <div class="screen" id="screen-question">
-    <div class="q-counter" id="qCounter">PERGUNTA 1 / 8</div>
-    <div class="q-axis" id="qAxis">VISIBILIDADE</div>
+    <div class="q-counter" id="qCounter">PERGUNTA 1 / 9</div>
+    <div class="q-axis" id="qAxis">CANAIS</div>
     <div class="q-text" id="qText"></div>
     <div class="q-options" id="qOptions"></div>
     <div class="q-back" id="qBack">← Voltar</div>
+  </div>
+
+  <!-- FORMULÁRIO INTERMEDIÁRIO (após pergunta 5) -->
+  <div class="screen" id="screen-form">
+    <div class="form-eyebrow">Quase na metade</div>
+    <div class="form-title">Precisamos de algumas informações para personalizar seu resultado.</div>
+    <p class="form-desc">Preencha abaixo para continuar.</p>
+
+    <div class="field-group">
+      <label class="field-label" for="fNome">Seu nome</label>
+      <input class="field-input" id="fNome" type="text" placeholder="Como podemos te chamar?" autocomplete="off">
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="fContato">WhatsApp</label>
+      <input class="field-input" id="fContato" type="tel" placeholder="(00) 00000-0000" autocomplete="off">
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="fFaturamento">Faturamento mensal aproximado</label>
+      <input class="field-input" id="fFaturamento" type="text" placeholder="Ex: R$ 50.000" autocomplete="off">
+    </div>
+
+    <button class="btn-primary" id="formBtn" disabled>Continuar diagnóstico →</button>
   </div>
 
   <!-- CALCULATING -->
@@ -176,9 +221,11 @@ footer { position: relative; z-index: 2; text-align: center; padding: 0 18px 24p
       <span class="res-tag" id="resTag"></span>
       <p class="res-text" id="resText"></p>
     </div>
-    <a class="btn-whatsapp" id="waBtn" href="#" target="_blank" rel="noopener">
-      <span>📲</span><span>Enviar resultado no WhatsApp</span>
-    </a>
+    <div class="res-inercia" id="resInercia">
+      <div class="res-inercia-label">Custo de inércia estimado</div>
+      <div class="res-inercia-range" id="resInerciaRange"></div>
+      <div class="res-inercia-desc" id="resInerciaDesc"></div>
+    </div>
     <p class="res-note">Toque para enviar seu resultado direto para Gustavo — ele responde pessoalmente.</p>
   </div>
 
@@ -189,88 +236,98 @@ footer { position: relative; z-index: 2; text-align: center; padding: 0 18px 24p
 <script>
 /* ════════ CONFIG ════════ */
 const WHATSAPP_NUMBER = '5548984649886';
+const FORM_AFTER = 5; // formulário aparece após a pergunta 5
 
 /* ════════ PERGUNTAS ════════ */
-/* Cada opção vale de 1 (Caótico) a 4 (Previsível) pontos */
 const QUESTIONS = [
   {
-    axis: 'Visibilidade',
-    text: 'Como você sabe em que etapa cada oportunidade está, agora?',
+    axis: 'Canais',
+    text: 'Seus canais de aquisição geram um volume adequado de oportunidades?',
     options: [
-      'Não sei dizer — depende da memória do vendedor',
-      'Tenho uma planilha, mas raramente está atualizada',
-      'Uso CRM, mas com falhas e dados incompletos',
-      'CRM atualizado em tempo real — decido com base nele'
+      'Não tenho canais definidos — clientes vêm por indicação ou acaso',
+      'Tenho algum canal, mas o volume é irregular e insuficiente',
+      'Gero oportunidades com certa regularidade, mas poderia ser mais consistente',
+      'Tenho canais ativos que geram volume previsível todo mês'
     ]
   },
   {
-    axis: 'Visibilidade',
-    text: 'Quando um vendedor sai da empresa, o que acontece com as oportunidades dele?',
+    axis: 'Canais',
+    text: 'As oportunidades geradas têm real potencial financeiro e interesse de compra?',
     options: [
-      'Se perdem, ou ninguém sabe o histórico',
-      'Outro vendedor tenta reconstruir do zero',
-      'O histórico existe, mas leva tempo para repassar',
-      'Qualquer pessoa assume sem perda de contexto'
-    ]
-  },
-  {
-    axis: 'Processo',
-    text: 'As etapas do seu processo comercial são…',
-    options: [
-      'Não existem etapas formais — cada um faz do seu jeito',
-      'Existem no papel, mas raramente seguidas',
-      'Definidas e seguidas na maior parte do tempo',
-      'Definidas, com critério claro de avanço entre elas'
+      'A maioria não tem perfil — perco tempo com quem não vai comprar',
+      'A qualidade é inconsistente — mistura bons e ruins',
+      'Boa parte tem perfil, mas ainda entram contatos fora do ideal',
+      'A maioria dos contatos tem perfil e intenção de compra clara'
     ]
   },
   {
     axis: 'Processo',
-    text: 'Existe um material (playbook ou script) que orienta como conduzir a venda?',
+    text: 'Você ou sua equipe comercial utilizam um CRM de forma disciplinada — registrando contatos, acompanhando etapas e tomando decisões com base nele?',
     options: [
-      'Não — cada vendedor improvisa',
-      'Existe, mas está desatualizado ou ninguém usa',
-      'Existe e é usado, mas raramente revisado',
-      'Existe, é vivo, testado e adaptado por canal e produto'
+      'Não uso CRM — controlo no WhatsApp, caderno ou memória',
+      'Tenho um CRM, mas o uso é irregular e sem disciplina',
+      'Uso com certa regularidade, mas ainda faltam dados consistentes',
+      'Uso de forma disciplinada — registro, acompanho e decido com base nele'
     ]
   },
   {
-    axis: 'Cadência',
-    text: 'Como funciona o follow-up de leads que não respondem de imediato?',
+    axis: 'Processo',
+    text: 'Existe um processo mapeado e/ou padrão de atendimento do primeiro contato até o fechamento?',
     options: [
-      'Se não responde, é descartado',
-      'Follow-up acontece, mas sem prazo ou regra definida',
-      'Existe uma cadência, mas nem sempre é cumprida',
-      'Cadência programada e cumprida, com regra de reengajamento'
+      'Não — cada atendimento é improvisado',
+      'Existe algo informal, mas não está documentado nem seguido',
+      'Temos um processo básico, mas ainda depende muito de quem atende',
+      'Temos processo claro, documentado e seguido de forma consistente'
     ]
   },
   {
-    axis: 'Cadência',
-    text: 'Em quanto tempo, em média, um lead recebe a primeira resposta?',
+    axis: 'Processo',
+    text: 'A cada 10 oportunidades, quantas viram vendas efetivadas?',
     options: [
-      'Não sei dizer — varia muito',
-      'Em algumas horas, às vezes no mesmo dia',
-      'Em até 1 hora, na maioria dos casos',
-      'Resposta imediata, com protocolo definido'
+      'Menos de 1',
+      'Entre 1 e 2',
+      'Entre 3 e 4',
+      '5 ou mais'
+    ]
+  },
+  {
+    axis: 'Oferta',
+    text: 'Você sente resistência do cliente ao informar o preço do seu produto ou serviço?',
+    options: [
+      'Sempre — o preço é meu maior obstáculo de fechamento',
+      'Com frequência — quase sempre gera objeção',
+      'Às vezes — depende muito de como a conversa chegou até o preço',
+      'Raramente — o cliente já chega entendendo o valor antes do preço'
+    ]
+  },
+  {
+    axis: 'Oferta',
+    text: 'Você cobra menos do que realmente acredita que seu produto ou serviço vale?',
+    options: [
+      'Cobro muito abaixo — tenho dificuldade até de justificar o preço atual',
+      'Sim — cobro menos por medo de perder o cliente',
+      'Levemente — sei que poderia cobrar mais, mas tenho receio',
+      'Não — meu preço reflete o valor que entrego'
     ]
   },
   {
     axis: 'Gestão',
-    text: 'Como é a gestão do time comercial hoje?',
+    text: 'Seu negócio possui métricas de desempenho comercial mapeadas de forma clara?',
     options: [
-      'Só se olha o resultado no fim do mês',
-      'Reunião acontece, mas sem dados estruturados',
-      'Reunião semanal com pipeline, decisões pontuais',
-      'Rituais semanais com métricas de atividade, não só resultado'
+      'Não acompanho métricas — tomo decisões pelo feeling',
+      'Acompanho o faturamento, mas não tenho indicadores de processo',
+      'Tenho algumas métricas, mas não de forma sistemática',
+      'Acompanho indicadores claros e tomo decisões com base neles'
     ]
   },
   {
     axis: 'Gestão',
-    text: 'Se o resultado cair no mês que vem, você sabe dizer, hoje, qual etapa travou?',
+    text: 'Se você ficasse 30 dias sem se envolver ativamente nas vendas, o que aconteceria com seu faturamento?',
     options: [
-      'Não tenho essa visibilidade',
-      'Eu teria que investigar para descobrir',
-      'Tenho uma ideia, mas não com precisão',
-      'Sei exatamente — acompanho taxa de avanço por etapa'
+      'As vendas parariam — tudo depende de mim',
+      'Cairia muito — sem minha presença as coisas travam',
+      'Funcionaria razoavelmente, mas com perda de volume ou qualidade',
+      'Funcionaria bem — o processo existe independente de mim'
     ]
   }
 ];
@@ -278,76 +335,80 @@ const QUESTIONS = [
 /* ════════ ESTÁGIOS ════════ */
 const STAGES = [
   {
-    min: 8, max: 13, name: 'Caótico', idx: 1, clr: '#EF4444',
+    min: 9, max: 15, name: 'Caótico', idx: 1, clr: '#EF4444',
     tag: '⚠ Alerta',
-    text: 'Seu comercial roda no impulso e na memória dos vendedores. Isso significa que, toda vez que alguém sai da empresa, parte do conhecimento vai junto — e o crescimento depende de sorte, não de sistema. <strong>A boa notícia: esse é o estágio mais fácil de sair</strong>, porque qualquer estrutura básica já gera ganho imediato.'
+    text: 'Seu comercial roda no impulso e na memória dos vendedores. Isso significa que, toda vez que alguém sai da empresa, parte do conhecimento vai junto — e o crescimento depende de sorte, não de sistema. <strong>A boa notícia: esse é o estágio mais fácil de sair</strong>, porque qualquer estrutura básica já gera ganho imediato.',
+    pctMin: 0.30, pctMax: 0.60
   },
   {
-    min: 14, max: 19, name: 'Reativo', idx: 2, clr: '#EF4444',
+    min: 16, max: 22, name: 'Reativo', idx: 2, clr: '#EF4444',
     tag: '⚠ Ponto de atenção',
-    text: 'Você já tem peças do processo — CRM, algum script, alguma cadência — mas elas não conversam entre si. O time apaga incêndio em vez de seguir um fluxo. <strong>O risco aqui é achar que "já tem processo" e parar de evoluir</strong> — porque o que existe hoje não escala além de um certo tamanho de time.'
+    text: 'Você já tem peças do processo — CRM, algum script, alguma cadência — mas elas não conversam entre si. O time apaga incêndio em vez de seguir um fluxo. <strong>O risco aqui é achar que "já tem processo" e parar de evoluir</strong> — porque o que existe hoje não escala além de um certo tamanho de time.',
+    pctMin: 0.20, pctMax: 0.30
   },
   {
-    min: 20, max: 25, name: 'Estruturado', idx: 3, clr: '#22C55E',
+    min: 23, max: 29, name: 'Estruturado', idx: 3, clr: '#22C55E',
     tag: '✓ Acima da média',
-    text: 'Seu comercial já tem disciplina: etapas claras, follow-up com regra, reuniões de pipeline. Isso já coloca você à frente da maioria das empresas do seu porte. <strong>O que falta para o próximo nível é tornar a gestão preditiva</strong>, não só organizada — acompanhar taxa de avanço por etapa, não só o resultado final do mês.'
+    text: 'Seu comercial já tem disciplina: etapas claras, follow-up com regra, reuniões de pipeline. Isso já coloca você à frente da maioria das empresas do seu porte. <strong>O que falta para o próximo nível é tornar a gestão preditiva</strong>, não só organizada — acompanhar taxa de avanço por etapa, não só o resultado final do mês.',
+    pctMin: 0.10, pctMax: 0.20
   },
   {
-    min: 26, max: 32, name: 'Previsível', idx: 4, clr: '#22C55E',
+    min: 30, max: 36, name: 'Previsível', idx: 4, clr: '#22C55E',
     tag: '✓ Elite',
-    text: 'Seu comercial já opera como sistema, não como esforço individual. Isso coloca sua empresa entre a minoria que realmente profissionalizou o processo. <strong>A próxima fronteira não é mais estruturar — é escalar sem perder qualidade:</strong> arquitetura de time, unit economics e capacity planning são os próximos degraus.'
+    text: 'Seu comercial já opera como sistema, não como esforço individual. Isso coloca sua empresa entre a minoria que realmente profissionalizou o processo. <strong>A próxima fronteira não é mais estruturar — é escalar sem perder qualidade:</strong> arquitetura de time, unit economics e capacity planning são os próximos degraus.',
+    pctMin: 0, pctMax: 0
   }
 ];
 
 /* ════════ ESTADO ════════ */
-let userName = '';
 let currentQ = 0;
 let answers = new Array(QUESTIONS.length).fill(null);
+let formData = {};
 
 const screens = {
-  intro: document.getElementById('screen-intro'),
+  intro:    document.getElementById('screen-intro'),
   question: document.getElementById('screen-question'),
-  calc: document.getElementById('screen-calc'),
-  result: document.getElementById('screen-result')
+  form:     document.getElementById('screen-form'),
+  calc:     document.getElementById('screen-calc'),
+  result:   document.getElementById('screen-result')
 };
 const progressFill = document.getElementById('progress');
 
 function showScreen(name) {
   Object.values(screens).forEach(s => s.classList.remove('active'));
-  screens[name].classList.add('active');
+  setTimeout(() => screens[name].classList.add('active'), 10);
 }
 
 function updateProgress(frac) {
   progressFill.style.width = (frac * 100) + '%';
 }
 
-/* INTRO */
-const nameInput = document.getElementById('nameInput');
-const startBtn = document.getElementById('startBtn');
-nameInput.addEventListener('input', () => {
-  startBtn.disabled = nameInput.value.trim().length < 2;
-});
-nameInput.addEventListener('keydown', e => { if (e.key === 'Enter' && !startBtn.disabled) startBtn.click(); });
-startBtn.addEventListener('click', () => {
-  userName = nameInput.value.trim();
+/* ── INTRO ── */
+document.getElementById('startBtn').addEventListener('click', () => {
   currentQ = 0;
+  answers = new Array(QUESTIONS.length).fill(null);
   renderQuestion();
   showScreen('question');
+  updateProgress(0);
 });
 
-/* QUESTION RENDER */
+/* ── PERGUNTAS ── */
 const qCounter = document.getElementById('qCounter');
-const qAxis = document.getElementById('qAxis');
-const qText = document.getElementById('qText');
+const qAxis    = document.getElementById('qAxis');
+const qText    = document.getElementById('qText');
 const qOptions = document.getElementById('qOptions');
-const qBack = document.getElementById('qBack');
+const qBack    = document.getElementById('qBack');
 
 function renderQuestion() {
   const q = QUESTIONS[currentQ];
+  // Progresso: perguntas + 1 passo do form = QUESTIONS.length + 1 passos totais
+  const totalSteps = QUESTIONS.length + 1;
+  const step = currentQ < FORM_AFTER ? currentQ : currentQ + 1;
+  updateProgress(step / totalSteps);
+
   qCounter.textContent = `PERGUNTA ${currentQ + 1} / ${QUESTIONS.length}`;
   qAxis.textContent = q.axis.toUpperCase();
   qText.textContent = q.text;
-  updateProgress(currentQ / QUESTIONS.length);
 
   qOptions.innerHTML = '';
   const letters = ['A', 'B', 'C', 'D'];
@@ -366,7 +427,11 @@ function selectAnswer(points) {
   answers[currentQ] = points;
   renderQuestion();
   setTimeout(() => {
-    if (currentQ < QUESTIONS.length - 1) {
+    if (currentQ === FORM_AFTER - 1) {
+      // Após pergunta 5 → formulário
+      showScreen('form');
+      updateProgress(FORM_AFTER / (QUESTIONS.length + 1));
+    } else if (currentQ < QUESTIONS.length - 1) {
       currentQ++;
       renderQuestion();
     } else {
@@ -381,14 +446,58 @@ qBack.addEventListener('click', () => {
   if (currentQ > 0) { currentQ--; renderQuestion(); }
 });
 
-/* RESULT */
+/* ── FORMULÁRIO ── */
+const fNome        = document.getElementById('fNome');
+const fContato     = document.getElementById('fContato');
+const fFaturamento = document.getElementById('fFaturamento');
+const formBtn      = document.getElementById('formBtn');
+
+function validateForm() {
+  const nome      = fNome.value.trim();
+  const contato   = fContato.value.trim();
+  const fat       = fFaturamento.value.trim();
+  formBtn.disabled = !(nome.length >= 2 && contato.length >= 8 && fat.length >= 2);
+}
+[fNome, fContato, fFaturamento].forEach(f => f.addEventListener('input', validateForm));
+
+// Máscara simples de moeda no campo faturamento
+fFaturamento.addEventListener('input', () => {
+  let v = fFaturamento.value.replace(/\D/g, '');
+  if (v.length === 0) { fFaturamento.value = ''; return; }
+  v = (parseInt(v, 10)).toLocaleString('pt-BR');
+  fFaturamento.value = 'R$ ' + v;
+  validateForm();
+});
+
+formBtn.addEventListener('click', () => {
+  formData = {
+    nome:        fNome.value.trim(),
+    contato:     fContato.value.trim(),
+    faturamento: fFaturamento.value.trim()
+  };
+  currentQ = FORM_AFTER;
+  renderQuestion();
+  showScreen('question');
+});
+
+/* ── RESULTADO ── */
+function parseFaturamento(str) {
+  // Remove "R$", espaços e pontos de milhar, devolve número
+  return parseInt(str.replace(/[^\d]/g, ''), 10) || 0;
+}
+
+function formatBRL(value) {
+  return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+}
+
 function computeResult() {
   const total = answers.reduce((a, b) => a + b, 0);
   const stage = STAGES.find(s => total >= s.min && total <= s.max) || STAGES[0];
+  const fat   = parseFaturamento(formData.faturamento);
 
-  document.getElementById('resGreeting').textContent = `Resultado de ${userName}`;
-  document.getElementById('resTitle').textContent = stage.name;
-  document.getElementById('resScore').innerHTML = `Estágio ${stage.idx} de 4 &nbsp;·&nbsp; <strong>${total}/32 pontos</strong>`;
+  document.getElementById('resGreeting').textContent = `Resultado de ${formData.nome}`;
+  document.getElementById('resTitle').textContent    = stage.name;
+  document.getElementById('resScore').innerHTML      = `Estágio ${stage.idx} de 4 &nbsp;·&nbsp; <strong>${total}/36 pontos</strong>`;
 
   const track = document.getElementById('resTrack');
   track.innerHTML = '';
@@ -398,14 +507,36 @@ function computeResult() {
     track.appendChild(seg);
   }
 
-  document.getElementById('resCard').style.setProperty('--res-clr', stage.clr);
-  document.getElementById('resTag').textContent = stage.tag;
-  document.getElementById('resTag').style.color = stage.clr;
-  document.getElementById('resTag').style.borderColor = stage.clr;
-  document.getElementById('resText').innerHTML = stage.text;
+  const resCard = document.getElementById('resCard');
+  resCard.style.setProperty('--res-clr', stage.clr);
+  document.getElementById('resTag').textContent        = stage.tag;
+  document.getElementById('resTag').style.color        = stage.clr;
+  document.getElementById('resTag').style.borderColor  = stage.clr;
+  document.getElementById('resText').innerHTML         = stage.text;
 
-  const msg = `Olá! Meu nome é ${userName}!\nAcabei de fazer o Diagnóstico de Maturidade Comercial, e meu resultado foi: *${stage.name}* (${total}/32 pontos).\n\nQuero entender como sair desse estágio!`;
-  document.getElementById('waBtn').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+  // Custo de inércia
+  const inerciaEl    = document.getElementById('resInercia');
+  const inerciaRange = document.getElementById('resInerciaRange');
+  const inerciaDesc  = document.getElementById('resInerciaDesc');
+  inerciaEl.style.setProperty('--res-clr', stage.clr);
+
+  if (stage.pctMin === 0) {
+    // Previsível — sem custo de inércia
+    inerciaEl.style.display = 'none';
+  } else {
+    inerciaEl.style.display = '';
+    const pctMin = Math.round(stage.pctMin * 100);
+    const pctMax = Math.round(stage.pctMax * 100);
+    if (fat > 0) {
+      const low  = Math.round(fat * stage.pctMin);
+      const high = Math.round(fat * stage.pctMax);
+      inerciaRange.textContent = `${formatBRL(low)} – ${formatBRL(high)}/mês`;
+      inerciaDesc.innerHTML = `Equivale a <strong>${pctMin}% – ${pctMax}%</strong> do seu faturamento. Estimativa baseada nos <strong>${formData.faturamento}</strong> informados. Esse é o valor que seu comercial está deixando de capturar todo mês por estar no estágio <strong>${stage.name}</strong>.`;
+    } else {
+      inerciaRange.textContent = `${pctMin}% – ${pctMax}% do seu faturamento/mês`;
+      inerciaDesc.innerHTML = `Esse é o intervalo estimado de receita que seu comercial está deixando de capturar por estar no estágio <strong>${stage.name}</strong>.`;
+    }
+  }
 
   showScreen('result');
 }
