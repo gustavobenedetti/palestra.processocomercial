@@ -550,7 +550,7 @@ function computeResult() {
     fetch('https://api.datacrazy.io/v1/crm/api/crm/flows/webhooks/da4cb7af-3b90-4c2a-af4d-81c1e6bf6d95/0ea8d806-8acf-4a0a-9844-6c6cad3a5d40', {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({
         nome:             formData.nome,
         whatsapp:         formData.contato,
